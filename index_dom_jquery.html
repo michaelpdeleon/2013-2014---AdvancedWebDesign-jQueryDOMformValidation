@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+ITI 332 Homework 4
+- DOM and jQuery using Cloud 9 (http://c9.io) and Bootstrap (http://getbootstrap.com)
+Created by Michael DeLeon
+October 7, 2013
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+  <title>DOM and jQuery</title>
+    
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+  
+  	<!-- Form title -->
+    <div class="col-lg-12">
+      <h1>My Form</h1>
+    </div>
+  
+  	<!-- Main form -->
+    <form class="form-horizontal" role="form" id="mainForm">
+  	  
+      <!-- First name input -->
+      <div class="form-group">
+        <label for="inputFirstName1" class="col-lg-2 control-label">First Name:</label>
+    	  <div class="col-lg-10">
+          	<input type="text" class="form-control" id="inputFirstName1">
+    	  </div>
+  	  </div>
+	  
+      <!-- Last name input -->
+      <div class="form-group">
+        <label for="inputLastName1" class="col-lg-2 control-label">Last Name:</label>
+    	  <div class="col-lg-10">
+          	<input type="text" class="form-control" id="inputLastName1">
+    	  </div>
+  	  </div>
+	  
+      <!-- Email input -->
+      <div class="form-group">
+        <label for="inputEmail1" class="col-lg-2 control-label">Email</label>
+    	  <div class="col-lg-10">
+          	<input type="email" class="form-control" id="inputEmail1">
+    	  </div>
+  	  </div>
+  	  
+      <!-- Telephone input -->
+      <div class="form-group">
+        <label for="inputTelephone1" class="col-lg-2 control-label">Telephone:</label>
+    	  <div class="col-lg-10">
+          	<input type="tel" class="form-control" id="inputTelephone1">
+    	  </div>
+  	  </div>
+  
+  	  <!-- City input -->
+  	  <div class="form-group">
+        <label for="inputCity1" class="col-lg-2 control-label">City:</label>
+        <div class="col-lg-10">
+          <input type="text" class="form-control" id="inputCity1">
+        </div>
+      </div>
+  
+  	  <!-- State pulldown menu -->
+      <div class="form-group">
+        <label for="inputState1" class="col-lg-2 control-label">State:</label>
+        <div class="col-lg-10">
+          <select class="form-control" id="inputState1" size="1">
+            <option selected value="">(Choose a state)</option>
+            <option value="Alabama">Alabama</option>
+            <option value="Alaska">Alaska</option>
+            <option value="Arizon">Arizona</option>
+            <option value="Arkansas">Arkansas</option>
+            <option value="California">California</option>
+            <option value="Colorado">Colorado</option>
+            <option value="Connecticut">Connecticut</option>
+            <option value="Delaware">Delaware</option>
+            <option value="Florida">Florida</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Hawaii">Hawaii</option>
+            <option value="Idaho">Idaho</option>
+            <option value="Illinois">Illinois</option>
+            <option value="Indiana">Indiana</option>
+            <option value="Iowa">Iowa</option>
+            <option value="Kansas">Kansas</option>
+            <option value="Kentucky7">Kentucky</option>
+            <option value="Louisiana">Louisiana</option>
+            <option value="Maine">Maine</option>
+            <option value="Maryland">Maryland</option>
+            <option value="Massachusetts">Massachusetts</option>
+            <option value="Michigan">Michigan</option>
+            <option value="Minnesota">Minnesota</option>
+            <option value="Mississippi">Mississippi</option>
+            <option value="Missouri">Missouri</option>
+            <option value="Montana">Montana</option>
+            <option value="Nebraska">Nebraska</option>
+            <option value="Nevada">Nevada</option>
+            <option value="New Hampshire">New Hampshire</option>
+            <option value="New Jersey">New Jersey</option>
+            <option value="New Mexico">New Mexico</option>
+            <option value="New York">New York</option>
+            <option value="North Carolina">North Carolina</option>
+            <option value="North Dakota">North Dakota</option>
+            <option value="Ohio">Ohio</option>
+            <option value="Oklahoma">Oklahoma</option>
+            <option value="Oregon">Oregon</option>
+            <option value="Pennsylvania">Pennsylvania</option>
+            <option value="Rhode Island">Rhode Island</option>
+            <option value="South Carolina">South Carolina</option>
+            <option value="South Dakota">South Dakota</option>
+            <option value="Tennesse">Tennessee</option>
+            <option value="Texas">Texas</option>
+            <option value="Utah">Utah</option>
+            <option value="Vermont">Vermont</option>
+            <option value="Virginia">Virginia</option>
+            <option value="Washington">Washington</option>
+            <option value="West Virginia">West Virginia</option>
+            <option value="Wisconsin">Wisconsin</option>
+            <option value="Wyoming">Wyoming</option>
+          </select>
+        </div>
+      </div><!-- /.form-group -->
+      
+      <!-- Role pulldown menu -->
+      <div class="form-group">
+        <label for="inputRole1" class="col-lg-2 control-label">Role:</label>
+        <div class="col-lg-10">
+          <select class="form-control" id="inputRole1" size="1">
+            <option selected value="">(Choose a role)</option>
+            <option value="Student">Student</option>
+            <option value="FacultyStaff">Faculty/Staff</option>
+            <option value="Alumni">Alumni</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Placeholder for fields -->
+      <div id="fieldRolePlaceholder1">
+      </div>
+  
+  	  <!-- Terms checkbox and link -->
+      <div class="form-group">
+        <div class="col-lg-12">
+          <div class="checkbox">
+            <label for="inputTerms1">
+              <input type="checkbox" id="inputTerms1" disabled> <span>I agree to terms</span>
+            </label>
+            <a id="showMeTerms" data-toggle="modal" href="#myTerms">Show me!</a>
+            <div class="modal fade" id="myTerms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          			<h4 class="modal-title">Terms</h4>
+        		  </div>
+				  
+                  <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique mauris sit amet felis tincidunt dictum ac sit amet nibh. Donec pretium tempus ante nec pharetra. Aliquam dictum vehicula elit, quis congue sapien porttitor et. Fusce convallis elit nisi, eu tempus erat posuere eget. Praesent sed magna quis lacus suscipit sodales. Mauris ornare est ligula, quis dignissim justo adipiscing ut. Quisque vitae posuere arcu. Integer ut diam ac arcu laoreet iaculis id ac purus. Cras eros nibh, cursus ut blandit ut, interdum consequat sem. Nullam porta iaculis neque ut bibendum. Suspendisse nec nisl nec neque tincidunt lacinia. Morbi ac laoreet leo.</p>
+					<p>Vestibulum in augue ante. Etiam molestie varius gravida. Proin ut leo enim. Sed ac diam nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse pharetra hendrerit lobortis. Donec porttitor nisi sed odio pretium, sed luctus ligula vehicula. Duis convallis sem lorem, a cursus dolor tempus tincidunt. Duis sed nunc vitae metus congue aliquam id vitae nulla. Vivamus gravida erat ipsum, sit amet tempor elit semper egestas. Duis convallis tellus massa, venenatis consequat metus dignissim a. Cras accumsan velit mi, id ornare mauris imperdiet ac. Nullam vestibulum tellus metus, id pulvinar magna pulvinar nec. Vestibulum accumsan interdum velit, semper hendrerit risus vehicula nec. Fusce dictum posuere ornare.</p>
+					<p>Vivamus ipsum magna, blandit a justo vitae, adipiscing blandit est. Nunc pellentesque justo nec mauris ornare luctus. In velit risus, blandit non lacus sit amet, aliquet gravida velit. Nunc euismod dignissim risus id convallis. In in mollis nisi. Donec tincidunt placerat imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                    <p>Sed placerat, purus eget commodo fringilla, turpis lacus pretium enim, vel laoreet sem libero nec nisi. Sed cursus pellentesque ligula nec tempor. Maecenas at vestibulum diam, vel feugiat sem. Curabitur ac lacus varius, interdum nunc vitae, cursus ligula. Donec tristique porttitor aliquam. Fusce tempor mi elit, ac aliquet massa faucibus nec. Etiam eget nisi a erat sagittis congue non ut ipsum. In placerat nisl et eros dictum, nec congue elit lobortis.</p>
+                    <p>Quisque sit amet ultrices mi. Suspendisse eu bibendum augue. Curabitur scelerisque est quis justo eleifend, vitae facilisis massa posuere. Pellentesque vel luctus nisi. Pellentesque velit lectus, elementum vitae malesuada semper, suscipit quis quam. In hac habitasse platea dictumst. Nullam hendrerit, tellus auctor sagittis suscipit, nisi eros vehicula leo, non sollicitudin felis diam id nunc. Proin eu orci placerat arcu dignissim tincidunt ut at velit. Fusce nec enim nec orci feugiat fringilla vel a leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+				  </div>
+                  
+                  <div class="modal-footer">
+          			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          			<button type="button" class="btn btn-primary" data-dismiss="modal" id="agreeButton">I Agree</button>
+				  </div>
+				
+                </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+          </div><!-- /.checkbox -->
+        </div><!-- /.col-lg-12 -->
+      </div><!-- /.form-group -->
+      
+      <div class="form-group">
+        <div class="col-lg-12">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+    </form><!-- End of form -->
+    
+    <!-- Added jQuery before javascript to remove errors -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+
+      //start unobtrusive javascript
+      $(document).ready(function() {
+
+        //START add fields to chosen role
+		$("#inputRole1").change(function ()    {
+  
+          //clear field if not empty
+          if (!$("#fieldRolePlaceholder1").val()) {
+			$("#fieldRolePlaceholder1").empty();
+}
+		  
+		  //add Student fields
+          if ($("#inputRole1").val() == "Student") {
+			$("#fieldRolePlaceholder1").append('<!-- Student fields --> <div class="form-group"> <label for="inputCampusAddress1" class="col-lg-4 control-label">Campus Address:</label> <div class="col-lg-8"><input type="text" class="form-control" id="inputCampusAddress1"></div></div> <div class="form-group"> <label for="inputMajor1" class="col-lg-4 control-label">Major:</label> <div class="col-lg-8"><input type="text" class="form-control" id="inputMajor1"></div></div>');
+          
+		  //add Faculty/Staff fields
+		  } else if ($("#inputRole1").val() == "FacultyStaff") {
+			$("#fieldRolePlaceholder1").append('<!-- Faculty/Staff fields --> <div class="form-group"> <label for="inputDepartment1" class="col-lg-4 control-label">Department:</label> <div class="col-lg-8"><input type="text" class="form-control" id="inputDepartment1"></div></div> <div class="form-group"> <label for="inputLocation1" class="col-lg-4 control-label">Location:</label> <div class="col-lg-8"><input type="text" class="form-control" id="inputLocation1"></div></div>');
+		  
+		  //add Alumni fields
+		  } else if ($("#inputRole1").val() == "Alumni") {
+			$("#fieldRolePlaceholder1").append('<!-- Alumni fields --> <div class="form-group"> <label for="inputYearGraduation1" class="col-lg-4 control-label">Year of Graduation:</label> <div class="col-lg-8"><input type="text" class="form-control" id="inputYearGraduation1"></div></div> <div class="form-group"> <label for="inputMajorAlumni1" class="col-lg-4 control-label">Major:</label> <div class="col-lg-8"><input type="text" class="form-control" id="inputMajorAlumni1"></div></div>');
+		  }
+		});//END add fields to chosen role
+		
+		// START validate #mainForm
+		$("#mainForm").submit(function ()    {
+		  //initialize error messages
+		  var errorMessages1 = "";
+		  
+		  // make regex pattern
+		  var FirstName1Pattern = /^[A-Za-z]+$/;
+		  var LastName1Pattern = /^[A-Za-z]+$/;
+          var Email1Pattern = /^[a-zA-Z0-9_.,]+@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)+$/;
+		  var Telephone1Pattern = /^[\(]?[1-9]{1}[0-9]{2}[\)]?[\-\ ]?[0-9]{3}[\-\ ]?[0-9]{4}$/;
+		  var City1Pattern = /^[A-Za-z]+$/;
+		  var CampusAddress1Pattern = /^[A-Za-z0-9.,'_\-\ ]+$/;
+		  var Major1Pattern = /^[A-Za-z\ ]+$/;
+		  var Department1Pattern = /^[A-Za-z\ ]+$/;
+		  var Location1Pattern = /^[A-Za-z0-9.,'_\-\ ]+$/;
+		  var YearGraduation1Pattern = /^[1,2]{1}[0-9]{1}[0-9]{1}[0-9]{1}$/;
+		  var MajorAlumni1Pattern = /^[A-Za-z\ ]+$/;
+		  
+		  // if statement to test pattern
+          if (!FirstName1Pattern.test($("#inputFirstName1").val())) {
+            // when it doesn't match, add to the list of errors
+            errorMessages1 += "First name is required\n";
+		  }
+		  
+		  // if statement to test pattern
+          if (!LastName1Pattern.test($("#inputLastName1").val())) {
+            // when it doesn't match, add to the list of errors
+            errorMessages1 += "Last name is required\n";
+		  }
+		
+		  // if statement to test pattern
+          if (!Email1Pattern.test($("#inputEmail1").val())) {
+            // when it doesn't exists and doesn't match, add to the list of errors
+            errorMessages1 += "Email address must be a fully valid email address\n (e.g. someone@somewhere.something)\n";
+		  }
+		        	
+		  // if statement to test pattern
+          if (!Telephone1Pattern.test($("#inputTelephone1").val())) {
+            // when it doesn't exists and doesn't match, add to the list of errors
+            errorMessages1 += "Phone number must be a fully valid phone number with area code (xxx) xxx-xxxx\n";
+		  }
+		
+		  // if statement to test pattern
+          if (!City1Pattern.test($("#inputCity1").val())) {
+            // when it doesn't match, add to the list of errors
+            errorMessages1 += "City is required\n";
+		  }
+		
+		  // if statement to see if a value exists
+          if (!$("#inputState1").val()) {
+            // if not, add to the list of errors
+            errorMessages1 += "State is required\n";
+		  }
+		  
+		  // if statement to see if a value exists
+		  if ($("#inputRole1").val()) {
+			
+			//if statement to see if Student role is picked
+			if ($("#inputRole1").val() == "Student") {
+			  // if statement to test pattern
+			  if (!CampusAddress1Pattern.test($("#inputCampusAddress1").val())) {
+            	// when it doesn't match, add to the list of errors
+            	errorMessages1 += "Campus address is required\n";
+			  }
+			  // if statement to test pattern
+			  if (!Major1Pattern.test($("#inputMajor1").val())) {
+            	// when it doesn't match, add to the list of errors
+            	errorMessages1 += "Major is required\n";
+			  }
+			  
+			//if statement to see if Faculty/Staff role is picked
+			} else if ($("#inputRole1").val() == "FacultyStaff") {
+			  // if statement to test pattern
+			  if (!Department1Pattern.test($("#inputDepartment1").val())) {
+            	// when it doesn't match, add to the list of errors
+            	errorMessages1 += "Department is required\n";
+			  }
+			  // if statement to test pattern
+			  if (!Location1Pattern.test($("#inputLocation1").val())) {
+            	// when it doesn't match, add to the list of errors
+            	errorMessages1 += "Location is required\n";
+			  }
+			  
+			//if statement to see if Faculty/Staff role is picked
+			} else if ($("#inputRole1").val() == "Alumni") {
+			  // if statement to test pattern
+			  if (!YearGraduation1Pattern.test($("#inputYearGraduation1").val())) {
+            	// when it doesn't match, add to the list of errors
+            	errorMessages1 += "Year of Graduation is required\n";
+			  }
+			  // if statement to test pattern
+			  if (!MajorAlumni1Pattern.test($("#inputMajorAlumni1").val())) {
+            	// when it doesn't match, add to the list of errors
+            	errorMessages1 += "Major is required\n";
+			  }
+			}// role is not empty
+			
+		  // role is empty
+		  } else {
+			errorMessages1 += "Role is required\n";
+		  }
+		  
+		  // if statement to see if the terms checkbox is checked
+          if (!$("#inputTerms1").prop("checked")) {
+            // if not, add to the list of errors
+            errorMessages1 += "You must agree to terms\n";
+		  }
+		
+		  // if statement to see if there are any errors
+		  if (errorMessages1.length > 0) {
+	        alert(errorMessages1);
+		    return false;
+		  } else {
+		    //no errors! submit and refresh form.
+		    return true;
+		  }
+		  
+		});// END validate #mainForm
+		
+		//START agree to terms
+		$("#agreeButton").click(function ()    {
+		  //check the agree to terms box
+		  $("#inputTerms1").prop("checked", true);
+		});//END agree to terms
+		
+		//START enable terms
+		$("#showMeTerms").click(function ()    {
+		  //enable agree to terms box
+		  $("#inputTerms1").prop("disabled", false);
+		});//END enable terms
+		
+	  });// end unobtrusive javascript
+	    
+    </script>
+  </div><!-- ./container -->
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
